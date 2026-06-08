@@ -4,10 +4,10 @@ import ccxt
 import sys
 
 # Global state
-exchange = os.env.PRECONFIGURED_EXCHANGE_NAME
-api_key = PRECONFIGURED_API_KEY
-secret = PRECONFIGURED_SECRET
-password = PRECONFIGURED_PASSWORD
+exchange = os.environ["DEF_EXCH"]
+api_key = os.environ["DEF_API"]
+secret = os.environ["DEF_SEC"]
+password = os.environ["DEF_PASS"]
 
 def print_result(data):
     """Prints the result in a formatted JSON string."""
@@ -46,10 +46,10 @@ def handle_ccxt_error(e):
 def _get_preconfigured_config():
     """Returns preconfigured global state values."""
     return (
-        PRECONFIGURED_EXCHANGE_NAME.strip().lower(),
-        PRECONFIGURED_API_KEY.strip(),
-        PRECONFIGURED_SECRET.strip(),
-        PRECONFIGURED_PASSWORD.strip(),
+        DEF_EXCH.strip().lower(),
+        DEF_API.strip(),
+        DEF_SEC.strip(),
+        DEF_PASS.strip(),
     )
 
 def initialize_exchange(exchange_name, key, sec, pwd=None):
